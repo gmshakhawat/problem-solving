@@ -1,0 +1,39 @@
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    std::cin >> t;
+    
+    map< string, int > names;
+    map<string, int>::iterator it ;
+    string status[t];
+    
+    for(int i=0;i<t;i++){
+        string temp;
+        cin>>temp;
+        
+        int count=0;
+        
+        it = names.find(temp);
+        if(it == names.end()){
+           status[i]="OK";
+            
+        }else{
+           count=it->second+1;
+           status[i]=temp+std::to_string(count);
+        }
+        names[temp]=count;
+    }
+    
+    for(int i=0;i<t;i++){
+       std::cout << status[i] << std::endl;
+    }
+    
+    return 0;
+}
